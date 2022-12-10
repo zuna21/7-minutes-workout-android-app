@@ -11,4 +11,6 @@
     <color name="main_color">#2f3e46</color>
     <color name="main_light_color">#354f52</color>
     <color name="circle_green">#6a994e</color>
+
+    <color name="toolbar_color_control_normal">#000000</color>
 </resources>
