@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">7MinutesWorkout</string>
+    <string name="content_description_main">Main Image</string>
+    <string name="button_start">START</string>
+</resources>
