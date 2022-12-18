@@ -73,6 +73,19 @@
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        tools:background="@drawable/ic_abdominal_crunch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarExercise"
+        app:layout_constraintBottom_toTopOf="@id/tvGetReady"
+        />
+
+
     <FrameLayout
         android:id="@+id/flProgressBarExercise"
         android:layout_width="100dp"
