@@ -80,6 +80,14 @@ class ExerciseActivity : AppCompatActivity() {
         binding?.flProgressBarExercise?.visibility = View.INVISIBLE
         binding?.tvGetReady?.text = "GET READY FOR"
         binding?.flProgressBar?.visibility = View.VISIBLE
+        binding?.tvUCExercise?.visibility = View.VISIBLE
+        binding?.tvUpcomingExercise?.visibility = View.VISIBLE
+
+        if(currentExercisePosition < exerciseList!!.size) {
+            binding?.tvUpcomingExercise?.text = exerciseList!![currentExercisePosition].getName()
+        } else {
+            binding?.tvUpcomingExercise?.text = "There is no more exercise"
+        }
 
         if(restTimer != null) {
             restTimer?.cancel()
@@ -94,6 +102,8 @@ class ExerciseActivity : AppCompatActivity() {
         binding?.tvGetReady?.text = exerciseList!![currentExercisePosition].getName()
         binding?.ivImage?.setImageResource(exerciseList!![currentExercisePosition].getImage())
         binding?.ivImage?.visibility = View.VISIBLE
+        binding?.tvUCExercise?.visibility = View.INVISIBLE
+        binding?.tvUpcomingExercise?.visibility = View.INVISIBLE
 
         if(exerciseTimer != null) {
             exerciseTimer?.cancel()

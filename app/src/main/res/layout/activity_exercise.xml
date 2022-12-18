@@ -85,7 +85,6 @@
         app:layout_constraintBottom_toTopOf="@id/tvGetReady"
         />
 
-
     <FrameLayout
         android:id="@+id/flProgressBarExercise"
         android:layout_width="100dp"
@@ -130,5 +129,30 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvUCExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPCOMING EXERCISE:"
+        android:textSize="@dimen/default_button_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flProgressBar"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/tvUpcomingExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Push Ups"
+        android:textSize="@dimen/default_button_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUCExercise"
+        android:layout_marginTop="20dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
