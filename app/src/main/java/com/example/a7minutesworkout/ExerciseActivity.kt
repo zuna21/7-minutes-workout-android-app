@@ -3,15 +3,20 @@ package com.example.a7minutesworkout
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ExerciseActivity : AppCompatActivity() {
+class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private val restTime: Long = 10000
     private val exerciseTime: Long = 30000
 
+    private var tts: TextToSpeech? = null
     private var binding: ActivityExerciseBinding? = null
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
@@ -32,6 +37,7 @@ class ExerciseActivity : AppCompatActivity() {
         }
 
         exerciseList = Constants.defaultExerciseList()
+        tts = TextToSpeech(this, this)
 
         binding?.toolbarExercise?.setNavigationOnClickListener {
             onBackPressed()
@@ -93,6 +99,7 @@ class ExerciseActivity : AppCompatActivity() {
             restTimer?.cancel()
             restProgress = 0
         }
+
         setRestProgressBar()
     }
 
@@ -109,8 +116,26 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseTimer?.cancel()
             exerciseProgress = 0
         }
+
+        speakOut(exerciseList!![currentExercisePosition].getName())
         setExerciseProgressBar()
     }
+
+    private fun speakOut(text: String) {
+        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
+    override fun onInit(status: Int) {
+        if(status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+            if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "Missing data or language is not supported")
+            }
+        } else {
+            Log.e("TTS", "There is some error")
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -122,7 +147,10 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseTimer?.cancel()
             exerciseProgress = 0
         }
-
+        if(tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
 
         binding = null
     }
