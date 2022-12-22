@@ -1,5 +1,6 @@
 package com.example.a7minutesworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,6 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
 import java.util.*
@@ -16,8 +16,8 @@ import kotlin.collections.ArrayList
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    private val restTime: Long = 10000
-    private val exerciseTime: Long = 30000
+    private val restTime: Long = 1000
+    private val exerciseTime: Long = 1000
 
     private var tts: TextToSpeech? = null
     private var binding: ActivityExerciseBinding? = null
@@ -74,11 +74,12 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 exerciseList!![currentExercisePosition].setIsSelected(true)
                 exerciseAdapter!!.notifyDataSetChanged()
 
-                if(currentExercisePosition < exerciseList!!.size){
+                if(currentExercisePosition < exerciseList!!.size - 1){
                     setupExerciseView()
                 } else {
-                    Toast.makeText(this@ExerciseActivity, "Exercise finished",
-                        Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
             }
         }.start()

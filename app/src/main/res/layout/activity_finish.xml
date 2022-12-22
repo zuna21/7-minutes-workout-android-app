@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    tools:context=".FinishActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarFinish"
+        android:layout_width="match_parent"
+        android:theme="@style/ToolbarTheme"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/white"
+        app:titleTextColor="@color/main_color"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="END"
+        android:textSize="70sp"
+        android:textColor="@color/circle_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolBarFinish"
+        />
+
+    <TextView
+        android:id="@+id/tvCheckMark"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/ripple_green_circle_button_bg"
+        android:layout_marginTop="10dp"
+        android:text="✔"
+        android:textSize="100sp"
+        android:textColor="@color/circle_green"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvCongratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulations!"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCheckMark"
+        />
+
+    <TextView
+        android:id="@+id/tvCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have completed the workout"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCongratulations"
+        />
+
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FINISH"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCompleted"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
