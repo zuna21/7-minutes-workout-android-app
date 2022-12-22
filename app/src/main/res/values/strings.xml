@@ -3,4 +3,5 @@
     <string name="content_description_main">Main Image</string>
     <string name="button_start">START</string>
     <string name="get_ready_for">GET READY FOR</string>
+    <string name="explanation">Are you sure you want to finish exercises? If you click on YES you will not be able to come back to exercise.</string>
 </resources>
