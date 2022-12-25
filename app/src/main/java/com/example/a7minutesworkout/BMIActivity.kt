@@ -37,6 +37,10 @@ class BMIActivity : AppCompatActivity() {
         binding?.btnCalculate?.setOnClickListener {
             showBMIResults()
         }
+
+        binding?.rbUsUnits?.setOnCheckedChangeListener { button, b ->
+            Toast.makeText(this@BMIActivity, button.text, Toast.LENGTH_SHORT).show()
+        }
     }
 
 
